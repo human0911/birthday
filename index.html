@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Shayan</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      height: 100vh;
+      position: relative;
+      /*background: linear-gradient(135deg, #40E0D0, #FFD700, #DC143C);*/
+      background: linear-gradient(135deg, #0072FF, #00C6FF, #FFD700, #FF6347);
+/* Blue to light blue to gold to coral */
+
+      background-size: 600% 600%;
+      animation: gradient 16s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #000;
+      transition: opacity 1s ease;
+    }
+
+    .intro img {
+      width: 200px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+    }
+
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: particleAnimation 4s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes particleAnimation {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-30px); }
+      60% { transform: translateY(-15px); }
+    }
+
+    .main-content {
+      display: none;
+      text-align: center;
+    }
+
+    .header {
+      background: #ff69b4;
+      color: white;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header h1 {
+      font-size: 3em;
+      animation: type 3s steps(22) 1s 1 normal both;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid orange;
+      display: inline-block;
+    }
+
+    .birthday-message, .gallery, .footer {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      position: fixed;
+      background: #ff69b4;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .balloon {
+      width: 50px;
+      height: 70px;
+      background: red;
+      border-radius: 0 0 25px 25px;
+      position: absolute;
+      bottom: -150px;
+    }
+
+    .balloon:nth-child(2) { left: 20%; background: yellow; }
+    .balloon:nth-child(3) { left: 40%; background: green; }
+    .balloon:nth-child(4) { left: 60%; background: blue; }
+    .balloon:nth-child(5) { left: 80%; background: purple; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-300px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes type {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      opacity: 0.7;
+      animation: confetti-fall 3s infinite;
+    }
+
+    .confetti:nth-child(odd) { background-color: #ff69b4; }
+    .confetti:nth-child(even) { background-color: #ff0; }
+
+    @keyframes confetti-fall {
+      0% { transform: translateY(0) rotate(0); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .candle {
+      position: absolute;
+      width: 10px;
+      height: 50px;
+      background: orange;
+      border-radius: 5px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 20px;
+      background: radial-gradient(circle, yellow 50%, orange 70%, transparent 100%);
+      border-radius: 50%;
+      animation: flicker 0.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(1.1); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.5); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /*background: rgba(0, 0, 0, 0.5);*/
+      background: black;
+      z-index: 999;
+      animation: zoomIn 0.5s ease-out;
+    }
+
+    .image-container img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .image-container:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 3px solid #fff;
+      border-radius: 13px;
+      pointer-events: none;
+    }
+    
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2em;
+        white-space: normal;
+      }
+
+      .balloon {
+        width: 30px;
+        height: 50px;
+      }
+
+      .birthday-message, .gallery, .footer {
+        margin: 10px;
+        padding: 10px;
+      }
+
+      .gallery img {
+        width: 80px;
+        height: 80px;
+        margin: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.5em;
+      }
+
+      .balloon {
+        width: 20px;
+        height: 40px;
+      }
+
+      .gallery img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particles"></div>
+
+  <div class="intro">
+    <img src="https://via.placeholder.com/200?text=🎁 Click+Me 🎁" alt="Present" id="intro-image">
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>🎉 Happy Birthday Shayan! 🎂</h1>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+
+    <div class="birthday-message">
+      <p>🎈 Dear Shayan,</p>
+      <!--<p>Wishing you a day filled with love, joy, and all your favorite things. Happy Birthday! 🎁</p>-->
+      <p>Happiest birthday to someone who is so special, The person with whom I share same interests. The person on whom I have right to scold,or laugh or being mad. The one who is always there to stand with me ❤..the one who cares about me...
+
+Wishing you a beautiful day with happiness and good health forever∞.
+
+May all your wishes and desires come true! Have an amazing year ahead.
+</p>
+      <p>Your well wisher 🙂🙂 </p>
+    </div>
+
+    <h2>📷 Photo Gallery 🎉</h2>
+
+    <div class="gallery">
+      <img src="https://via.placeholder.com/100/FF0000/FFFFFF?text=1" alt="Photo 1" onclick="openImage('i1.jpeg')">
+      <img src="https://via.placeholder.com/100/FFFF00/000000?text=2" alt="Photo 2" onclick="openImage('i3.jpeg')">
+      <img src="https://via.placeholder.com/100/00FF00/000000?text=3" alt="Photo 3" onclick="openImage('i5.jpeg')">
+      <img src="https://via.placeholder.com/100/0000FF/FFFFFF?text=4" alt="Photo 4" onclick="openImage('i4.jpeg')">
+      <img src="https://via.placeholder.com/100/FF00FF/FFFFFF?text=5" alt="Photo 5" onclick="openImage('i6.jpeg')">
+      <img src="https://via.placeholder.com/100/00FFFF/000000?text=6" alt="Photo 6" onclick="openImage('i7.jpeg')">
+      <img src="https://via.placeholder.com/100/000000/FFFFFF?text=7" alt="Photo 7" onclick="openImage('i2.jpeg')">
+    </div>
+    
+
+    <div class="footer">
+      <p>&copy; 2024 Happy Birthday Shayan</p>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    const introImage = document.getElementById('intro-image');
+    const intro = document.querySelector('.intro');
+    const mainContent = document.querySelector('.main-content');
+
+    introImage.addEventListener('click', () => {
+      intro.style.opacity = '0';
+      setTimeout(() => {
+        intro.style.display = 'none';
+        mainContent.style.display = 'block';
+        startConfetti();
+        addParticles();
+        addCandles();
+      }, 1000);
+    });
+
+    function startConfetti() {
+      for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        document.body.appendChild(confetti);
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+      }
+    }
+
+    function addCandles() {
+      const header = document.querySelector('.header');
+      for (let i = 0; i < 5; i++) {
+        const candle = document.createElement('div');
+        candle.className = 'candle';
+        candle.style.left = `${20 * (i + 1)}%`;
+        header.appendChild(candle);
+
+        const flame = document.createElement('div');
+        flame.className = 'flame';
+        candle.appendChild(flame);
+      }
+    }
+
+    function addParticles() {
+      const particles = document.querySelector('.particles');
+      for (let i = 0; i < 100; i++) {
+        let particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particles.appendChild(particle);
+      }
+    }
+
+    const balloons = document.querySelectorAll('.balloon');
+    balloons.forEach(balloon => {
+      balloon.style.animation = `float ${Math.random() * 3 + 3}s ease-in-out infinite`;
+    });
+
+    const galleryImages = document.querySelectorAll('.gallery img');
+    galleryImages.forEach((img, index) => {
+      img.style.animation = `fadeIn ${1 + index * 0.5}s ease-in-out both`;
+    });
+
+    function openImage(imageName) {
+      const imageContainer = document.createElement('div');
+      imageContainer.classList.add('image-container');
+      imageContainer.style.display = 'flex';
+      imageContainer.style.justifyContent = 'center';
+      imageContainer.style.alignItems = 'center';
+      imageContainer.style.position = 'fixed';
+      imageContainer.style.top = '0';
+      imageContainer.style.left = '0';
+      imageContainer.style.width = '100%';
+      imageContainer.style.height = '100%';
+      imageContainer.style.background = 'rgba(0, 0, 0, 0.5)';
+      /*imageContainer.style.background = 'black';*/
+      imageContainer.style.zIndex = '999';
+      imageContainer.style.animation = 'zoomIn 0.5s ease-out';
+
+      const roundedBorder = document.createElement('div');
+      roundedBorder.classList.add('rounded-border');
+      roundedBorder.style.width = 'calc(80% + 20px)';
+      roundedBorder.style.height = 'calc(80% + 20px)';
+      roundedBorder.style.position = 'absolute';
+      /*roundedBorder.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';*/
+      imageContainer.style.background = 'black';
+      roundedBorder.style.borderRadius = '20px';
+      imageContainer.appendChild(roundedBorder);
+
+      const image = document.createElement('img');
+      image.src = imageName;
+      image.style.maxWidth = '80%';
+      image.style.maxHeight = '80%';
+      image.style.borderRadius = '10px';
+
+      imageContainer.appendChild(image);
+      document.body.appendChild(imageContainer);
+
+      imageContainer.addEventListener('click', () => {
+        imageContainer.remove();
+      });
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
